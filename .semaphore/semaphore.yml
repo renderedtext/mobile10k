@@ -12,6 +12,6 @@ blocks:
           commands:
             - checkout
             - sudo apt install -y parallel
-            - 'cat "https://storage.googleapis.com/test-bucket-sarath/junkfile1\nhttps://storage.googleapis.com/test-bucket-sarath/junkfile2\nhttps://storage.googleapis.com/test-bucket-sarath/junkfile3" > urls.txt'
+            - 'echo "https://storage.googleapis.com/test-bucket-sarath/junkfile1\nhttps://storage.googleapis.com/test-bucket-sarath/junkfile2\nhttps://storage.googleapis.com/test-bucket-sarath/junkfile3" > urls.txt'
             - parallel -fg -j 10 -a urls.txt wget
           parallelism: 3
