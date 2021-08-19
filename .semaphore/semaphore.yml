@@ -13,5 +13,5 @@ blocks:
             - checkout
             - sudo apt install -y parallel
             - chmod +x run.sh
-            - parallel -j 10 -a apps.txt ./run.sh
+            - parallel -j 10 -a sleeps ./run.sh
           parallelism: 3
