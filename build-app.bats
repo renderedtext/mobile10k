@@ -1,7 +1,7 @@
 #!/usr/bin/env bats
 
-load "support/bats-support/load"
-load "support/bats-assert/load"
+load "test/test_helper/bats-support/load"
+load "test/test_helper/bats-assert/load"
 
 @test "$APP_NAME" {
   run echo $APP_NAME
