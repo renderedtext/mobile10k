@@ -11,7 +11,10 @@ blocks:
         - name: 'Job #1'
           commands:
             - checkout
-            - sudo apt install -y parallel bats
+            - sudo apt install -y parallel
+            - git submodule add https://github.com/bats-core/bats-core.git test/bats
+            - git submodule add https://github.com/bats-core/bats-support.git test/test_helper/bats-support
+            - git submodule add https://github.com/bats-core/bats-assert.git test/test_helper/bats-assert            
             - bash run.sh
-            - bats --report-formatter junit --tap --timing apps/*
+            - ./test/bats/bin/bats --report-formatter junit --tap --timing apps/*
           parallelism: 3
