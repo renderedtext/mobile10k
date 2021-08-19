@@ -18,4 +18,5 @@ blocks:
             - sudo ./test/bats/install.sh /usr/local         
             - bash run.sh
             - bats --report-formatter junit --tap --timing apps/*
+            - test-results publish report.xml
           parallelism: 3
