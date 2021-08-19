@@ -12,5 +12,5 @@ blocks:
           commands:
             - checkout
             - sudo apt install -y parallel
-            - parallel -j 10 -a apps.txt echo
+            - parallel -j 10 -a apps.txt curl
           parallelism: 3
