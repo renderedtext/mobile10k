@@ -1,6 +1,10 @@
 #!/bin/bash
 
-sleep $1
-echo "Slept $1"
-sed 's/APP_NAME/$1/g' junit-template.xml > $APP_NAME.xml
+mkdir -p apps
+
+cat apps.txt | while read line 
+do
+  export APP_NAME=$line
+  cat build-app.bats | envsubst > apps/$line.bats
+done
 

@@ -12,6 +12,7 @@ blocks:
           commands:
             - checkout
             - sudo apt install -y parallel
-            - chmod +x run.sh
-            - parallel -j 10 -a sleeps ./run.sh
+            - bash run.sh
+            - bats --report-formatter junit --tap --timing apps/*
+            
           parallelism: 3
