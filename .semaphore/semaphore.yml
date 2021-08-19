@@ -11,8 +11,7 @@ blocks:
         - name: 'Job #1'
           commands:
             - checkout
-            - sudo apt install -y parallel
+            - sudo apt install -y parallel bats
             - bash run.sh
             - bats --report-formatter junit --tap --timing apps/*
-            
           parallelism: 3
