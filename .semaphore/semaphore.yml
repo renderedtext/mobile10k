@@ -12,11 +12,16 @@ blocks:
           commands:
             - checkout
             - sudo apt install -y parallel
-            - git submodule add https://github.com/bats-core/bats-core.git test/bats
-            - git submodule add https://github.com/bats-core/bats-support.git test/test_helper/bats-support
-            - git submodule add https://github.com/bats-core/bats-assert.git test/test_helper/bats-assert
-            - sudo ./test/bats/install.sh /usr/local         
+            - 'git submodule add https://github.com/bats-core/bats-core.git test/bats'
+            - 'git submodule add https://github.com/bats-core/bats-support.git test/test_helper/bats-support'
+            - 'git submodule add https://github.com/bats-core/bats-assert.git test/test_helper/bats-assert'
+            - sudo ./test/bats/install.sh /usr/local
             - bash run.sh
             - bats --report-formatter junit --tap --timing apps/*
             - test-results publish report.xml
           parallelism: 3
+promotions:
+  - name: Generate Pipeline Summary
+    pipeline_file: pipeline_2.yml
+    auto_promote:
+      when: 'true'
