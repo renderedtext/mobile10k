@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+   <testsuite errors="0" failures="0" name="APP_NAME" tests="8" time="14.0091">
+      <properties>
+         <property name="date" value="2021-08-19T10:54:21.115620Z" />
+         <property name="seed" value="79518" />
+      </properties>
+      <testcase classname="APP_NAME" name="APP_NAME" time="3.6599" />
+   </testsuite>
+</testsuites>

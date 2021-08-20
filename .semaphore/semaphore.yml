@@ -1,0 +1,22 @@
+version: v1.0
+name: Initial Pipeline
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+blocks:
+  - name: 'Block #1'
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands:
+            - checkout
+            - sudo apt install -y parallel
+            - git submodule add https://github.com/bats-core/bats-core.git test/bats
+            - git submodule add https://github.com/bats-core/bats-support.git test/test_helper/bats-support
+            - git submodule add https://github.com/bats-core/bats-assert.git test/test_helper/bats-assert
+            - sudo ./test/bats/install.sh /usr/local         
+            - bash run.sh
+            - bats --report-formatter junit --tap --timing apps/*
+            - test-results publish report.xml
+          parallelism: 3

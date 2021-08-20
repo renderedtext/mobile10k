@@ -1,0 +1,7 @@
+xapp
+blueapp
+greatapp
+redapp
+smellyapp
+shinyapp
+bestapp
