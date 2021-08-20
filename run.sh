@@ -1,8 +1,16 @@
 #!/bin/bash
 
-mkdir -p apps
+mkdir -p apps batches
 
-cat apps.txt | while read line 
+cp apps.txt batches/apps.txt
+cd batches
+split -l3 apps.txt
+rm -f apps.txt
+cd ..
+
+BATCH=$(ls -1 batches/ | sed "${SEMAPHORE_JOB_INDEX}q;d")
+
+cat BATCH | while read line 
 do
   export APP_NAME=$line
   cat build-app.bats | envsubst > apps/$line.bats
