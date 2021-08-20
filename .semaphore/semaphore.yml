@@ -18,8 +18,10 @@ blocks:
             - sudo ./test/bats/install.sh /usr/local
             - bash run.sh
             - bats --report-formatter junit --tap --timing apps/*
-            - test-results publish report.xml
           parallelism: 4
+          epilogue:
+            always:
+              - test-results publish report.xml
 promotions:
   - name: Generate Pipeline Summary
     pipeline_file: pipeline_2.yml
