@@ -10,6 +10,8 @@ cd ..
 
 BATCH=$(ls -1 batches/ | sed "${SEMAPHORE_JOB_INDEX}q;d")
 
+echo "Current batch: $BATCH"
+ 
 cat BATCH | while read line 
 do
   export APP_NAME=$line
