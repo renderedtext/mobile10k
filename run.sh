@@ -4,7 +4,7 @@ mkdir -p apps batches
 
 cp apps.txt batches/apps.txt
 cd batches
-split -l3 apps.txt
+split -l$SEMAPHORE_JOB_COUNT apps.txt
 rm -f apps.txt
 cd ..
 
