@@ -19,9 +19,9 @@ blocks:
             - bash run.sh
             - bats --report-formatter junit --tap --timing apps/*
           parallelism: 4
-          epilogue:
-            always:
-              - test-results publish report.xml
+      epilogue:
+        always:
+          - test-results publish report.xml
 promotions:
   - name: Generate Pipeline Summary
     pipeline_file: pipeline_2.yml
