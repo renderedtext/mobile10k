@@ -2,9 +2,12 @@
 
 mkdir -p apps batches
 
+APP_COUNT=$(wc -l apps.txt | cut -d' ' -f1)
+BATCH_SIZE=$(divide=$APP_COUNT; by=$SEMAPHORE_JOB_COUNT; (( result=(divide+by-1)/by )); echo $result)
+
 cp apps.txt batches/apps.txt
 cd batches
-split -l$SEMAPHORE_JOB_COUNT apps.txt
+split -l$BATCH_SIZE apps.txt
 rm -f apps.txt
 cd ..
 
