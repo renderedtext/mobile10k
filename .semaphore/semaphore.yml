@@ -19,7 +19,7 @@ blocks:
             - bash run.sh
             - bats --report-formatter junit --tap --timing apps/*
             - test-results publish report.xml
-          parallelism: 3
+          parallelism: 4
 promotions:
   - name: Generate Pipeline Summary
     pipeline_file: pipeline_2.yml
