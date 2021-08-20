@@ -12,9 +12,10 @@ blocks:
           commands:
             - artifact pull workflow test-results -d /tmp/test-results
             - cd /tmp/test-results
-            - for directory in * ; do
-            - '  if [ -d "$directory" ]; then'
-            - '    test-results combine $directory $directory.json'
-            - '    artifact push workflow $directory.json -d test-results/$directory.json'
-            - '  fi'
-            - done
+            - |
+              for directory in * ; do
+                if [ -d "$directory" ]; then
+                  test-results combine $directory $directory.json
+                  artifact push workflow $directory.json -d test-results/$directory.json
+                fi
+              done
