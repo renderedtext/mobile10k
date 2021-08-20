@@ -21,7 +21,8 @@ blocks:
           parallelism: 4
       epilogue:
         always:
-          - test-results publish report.xml
+          commands:
+            - test-results publish report.xml
 promotions:
   - name: Generate Pipeline Summary
     pipeline_file: pipeline_2.yml
